@@ -11,7 +11,8 @@ public class WikipediaPage
 
     public void GoToUrl(string url)
     {
-        driver.Navigate().GoToUrl(url);
+         driver.Navigate().GoToUrl(url);
+     
     }
 
     public void ClickRandomLink()
@@ -19,9 +20,12 @@ public class WikipediaPage
         // finds all links on the page with href starts with "wiki"
         var links = driver.FindElements(By.CssSelector("a[href^='/wiki/']"));
         // from previous step  choose link in click on it
+      
         var random = new Random();
+       
         var randomLink = links[random.Next(links.Count)];
         randomLink.Click();
+       // Thread.Sleep(4000);
     }
 
     public void ClickPhilosophyLink()

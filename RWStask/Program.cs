@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 class Program
 {
@@ -10,9 +11,12 @@ class Program
         
         // create a new  wikipediaPage instance using chromedrive instance
         var wikipediaPage = new WikipediaPage(driver);
-        
-        // Navigate to the Wikipedia main page
-        wikipediaPage.GoToUrl("https://en.wikipedia.org/Main_Page");
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
+        // Navigate to the Wikipedia 
+        wikipediaPage.GoToUrl("https://en.wikipedia.org/wiki/Special:Random");
+        //wikipediaPage.GoToUrl("https://en.wikipedia.org/wiki/Main_Page");
+     
 
         var reached = false;
         var redirects = 0;
